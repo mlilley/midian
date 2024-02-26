@@ -66,10 +66,58 @@ points:
           key:
             rotate: 60
             width: 1.5keyx
-            shift: [6, -2]
+            shift: [5 , -1]
+          rows:
+            special:
+              tags: 1p5u
       rows:
         special:
-  mirror: &mirror
-    ref: main_inner_num
-    distance: 4keyy
-
+outlines:
+  keys:
+    - what: rectangle
+      where: meta.tags ~ -/1p5u/
+      size: [keyx-0.5, keyy-0.5]
+    - what: rectangle
+      where: meta.tags ~ /1p5u/
+      size: [1.5keyx-0.5, keyy-0.5]
+  pcb:
+    - what: rectangle
+      where: true
+      size: [keyx, keyy]
+      expand: 1
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      expand: 2
+      points:
+        - ref: main_outer_num
+          shift: [-0.5keyx, 0.5keyy]
+        - ref: main_ring_num
+          shift: [-0.5keyx, 0.5keyy]
+        - ref: main_middle_num
+          shift: [-0.5keyx, 0.5keyy]
+        - ref: main_middle_num
+          shift: [0.5keyx, 0.5keyy]
+        - ref: main_index_num
+          shift: [0.5keyx, 0.5keyy]
+        - ref: main_inner_num
+          shift: [0.5keyx, 0.5keyy]
+        - ref: main_inner_home
+          shift: [0.5keyx, -0.5keyy]
+        - ref: special_thumb_special
+          shift: [0.75keyx, -0.5keyy]
+        - ref: special_thumb_special
+          shift: [-0.75keyx, -0.5keyy]
+        - ref: special_layer_special
+          shift: [0.5keyx, -0.5keyy]
+        - ref: special_ctrl_special
+          shift: [0.5keyx, -0.5keyy]
+        - ref: special_ctrl_special
+          shift: [-0.5keyx, -0.5keyy]
+        - ref: main_outer_bottom
+          shift: [-0.5keyx, -0.5keyy]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
