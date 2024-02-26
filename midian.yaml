@@ -1,0 +1,75 @@
+meta:
+  name: "Midian"
+  version: "1.0"
+  spacing: "choc"
+  author: "michael.lilley@gmail.com"
+  ref: "https://github.com/mlilley/midian"
+  ergogen: "4.0.2"
+units:
+  keyx: cx # chocx 18mm
+  keyy: cy # chocy 17mm
+  padx: keyx + 2
+  pady: keyy + 2
+points:
+  zones:
+    main:
+      key:
+        # apply choc spacing
+        spread: keyx
+        padding: keyy 
+      columns:
+        outer:
+          rows:
+            mod:
+              skip: true
+        pinky:
+          rows:
+            mod:
+              skip: true
+          key:
+            stagger: 2
+        ring:
+          key:
+            stagger: 5
+        middle:
+          key:
+            stagger: 2
+        index:
+          key:
+            stagger: -1.5
+        inner:
+          key:
+            stagger: -2.5
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+    special:
+      key:
+        # apply choc spacing
+        spread: keyx
+        padding: keyy
+      anchor:
+        ref: main_pinky_bottom
+        shift: [0.5keyx, -keyy]
+      columns:
+        ctrl:
+        opt:
+          key:
+            stagger: 4
+        cmd:
+        layer:
+          key:
+            stagger: -1
+        thumb:
+          key:
+            rotate: 60
+            width: 1.5keyx
+            shift: [6, -2]
+      rows:
+        special:
+  mirror: &mirror
+    ref: main_inner_num
+    distance: 4keyy
+
